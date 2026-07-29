@@ -14,29 +14,26 @@ html {
   width: 100%;
   max-width: 100%;
   background: var(--background);
-  overflow-x: clip;
 }
 
 body {
   position: relative;
   isolation: isolate;
   width: 100%;
-  max-width: 100vw;
   min-height: 100vh;
+  min-height: 100dvh;
   margin: 0;
   color: var(--text);
   background: var(--background);
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
-  overflow-x: clip;
 }
 
 body > main {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 100vw;
 }
 
 .matrix-background {
@@ -140,6 +137,7 @@ a {
 .email-page {
   display: grid;
   min-height: calc(100vh - 76px);
+  min-height: calc(100dvh - 76px);
   padding: clamp(32px, 6vw, 80px) 24px;
   place-items: center;
 }
@@ -346,6 +344,7 @@ a {
   position: relative;
   display: flex;
   min-height: calc(100svh - 76px);
+  min-height: calc(100dvh - 76px);
   overflow: hidden;
   padding: clamp(56px, 8vh, 96px) 24px 30px;
   align-items: center;
@@ -2083,7 +2082,7 @@ a {
 
 .contact-link {
   display: inline-flex;
-  min-height: 40px;
+  min-height: 44px;
   padding: 0 18px;
   border: 1px solid rgb(50 255 126 / 58%);
   border-radius: 6px;
@@ -2200,6 +2199,7 @@ a {
 .error-page {
   display: grid;
   min-height: calc(100svh - 76px);
+  min-height: calc(100dvh - 76px);
   padding: clamp(48px, 8vw, 96px) 24px;
   place-items: center;
 }
@@ -2420,7 +2420,11 @@ a {
 
   .email-page {
     min-height: calc(100vh - 68px);
-    padding: 20px 16px 32px;
+    min-height: calc(100dvh - 68px);
+    padding:
+      20px max(16px, env(safe-area-inset-right))
+      max(32px, env(safe-area-inset-bottom))
+      max(16px, env(safe-area-inset-left));
     place-items: start center;
   }
 
@@ -2456,9 +2460,12 @@ a {
 
   .hero {
     width: 100%;
-    max-width: 100vw;
     min-height: calc(100svh - 68px);
-    padding: 54px 18px 24px;
+    min-height: calc(100dvh - 68px);
+    padding:
+      54px max(18px, env(safe-area-inset-right))
+      max(24px, env(safe-area-inset-bottom))
+      max(18px, env(safe-area-inset-left));
   }
 
   .hero-grid {
@@ -2876,7 +2883,6 @@ a {
 
   .header-inner {
     width: min(100% - 32px, 1200px);
-    max-width: calc(100vw - 32px);
     min-height: 68px;
   }
 
@@ -2920,7 +2926,10 @@ a {
     top: calc(100% + 1px);
     right: -16px;
     left: -16px;
-    overflow: hidden;
+    max-height: calc(100vh - 69px);
+    max-height: calc(100dvh - 69px);
+    overflow-x: clip;
+    overflow-y: auto;
     border-bottom: 1px solid rgb(50 255 126 / 14%);
     background: rgb(5 7 6 / 96%);
     box-shadow: 0 18px 40px rgb(0 0 0 / 28%);
@@ -2942,7 +2951,10 @@ a {
   }
 
   .mobile-nav-list {
-    padding: 16px;
+    padding:
+      16px max(16px, env(safe-area-inset-right))
+      max(16px, env(safe-area-inset-bottom))
+      max(16px, env(safe-area-inset-left));
     align-items: stretch;
     flex-direction: column;
     gap: 4px;
@@ -2987,7 +2999,8 @@ a {
   .footer-inner {
     width: min(100% - 32px, 1200px);
     min-height: 0;
-    padding-block: 32px;
+    padding-top: 32px;
+    padding-bottom: max(32px, env(safe-area-inset-bottom));
     align-items: flex-start;
     flex-direction: column;
     gap: 24px;
@@ -3000,7 +3013,11 @@ a {
 
   .error-page {
     min-height: calc(100svh - 68px);
-    padding: 32px 16px;
+    min-height: calc(100dvh - 68px);
+    padding:
+      32px max(16px, env(safe-area-inset-right))
+      max(32px, env(safe-area-inset-bottom))
+      max(16px, env(safe-area-inset-left));
   }
 
   .error-panel {
@@ -3015,6 +3032,15 @@ a {
 
   .error-actions .hero-cta {
     width: 100%;
+  }
+}
+
+@media (hover: none) {
+  .email-link:hover,
+  .hero-cta-primary:hover,
+  .hero-cta-secondary:hover,
+  .showcase-shell:hover .browser-frame {
+    transform: none;
   }
 }
 

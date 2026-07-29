@@ -334,6 +334,7 @@
   .mobileInfo strong,
   .mobileInfo small {
     display: block;
+    overflow-wrap: anywhere;
   }
 
   .mobileInfo strong {

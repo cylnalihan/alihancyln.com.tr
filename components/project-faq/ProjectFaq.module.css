@@ -228,6 +228,13 @@
   }
 }
 
+@media (max-width: 400px) {
+  .faqItem[open] .faqAnswer {
+    padding-right: 4px;
+    padding-left: 36px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .faqIndicator,
   .faqIndicator::after,

@@ -1575,6 +1575,10 @@
   letter-spacing: 0.14em;
 }
 
+.formHeader > div {
+  min-width: 0;
+}
+
 .formHeader h3 {
   margin: 12px 0 0;
   font-size: clamp(1.35rem, 3vw, 2rem);
@@ -1587,12 +1591,13 @@
   color: var(--muted);
   font-size: 0.78rem;
   line-height: 1.65;
+  overflow-wrap: anywhere;
 }
 
 .formClose {
   display: grid;
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   flex: 0 0 auto;
   border: 1px solid rgb(154 166 159 / 18%);
   border-radius: 50%;
@@ -1653,6 +1658,7 @@
 
 .field {
   display: grid;
+  min-width: 0;
   margin-top: 18px;
   gap: 8px;
 }
@@ -1744,6 +1750,11 @@
     border-color 180ms ease,
     background-color 180ms ease,
     box-shadow 180ms ease;
+}
+
+.dropZone > div {
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 
 .dropZone:hover,
@@ -1864,6 +1875,8 @@
 .fileList button {
   position: relative;
   z-index: 2;
+  min-width: 44px;
+  min-height: 44px;
   padding: 7px 9px;
   border: 1px solid rgb(255 170 163 / 22%);
   border-radius: 5px;
@@ -2132,6 +2145,11 @@
     grid-template-columns: 1fr;
   }
 
+  .formColumns {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
   .processHeading {
     grid-template-columns: 1fr 1fr;
   }
@@ -2356,6 +2374,21 @@
 }
 
 @media (max-width: 520px) {
+  .action {
+    padding-block: 12px;
+    white-space: normal;
+  }
+
+  .dropZone {
+    padding: 18px;
+    flex-direction: column;
+  }
+
+  .fileList li {
+    grid-template-columns: 40px minmax(0, 1fr) 44px;
+    gap: 9px;
+  }
+
   .mockToolbar > i {
     width: 46%;
   }
@@ -2477,6 +2510,13 @@
 
   .statusList {
     display: none;
+  }
+}
+
+@media (hover: none) {
+  .serviceTab:hover,
+  .actionPrimary:hover {
+    transform: none;
   }
 }
 
