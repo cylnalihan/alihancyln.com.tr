@@ -2922,12 +2922,12 @@ a {
   }
 
   .mobile-menu {
-    position: absolute;
-    top: calc(100% + 1px);
-    right: -16px;
-    left: -16px;
-    max-height: calc(100vh - 69px);
-    max-height: calc(100dvh - 69px);
+    position: fixed;
+    top: 68px;
+    right: 0;
+    left: 0;
+    max-height: calc(100vh - 68px);
+    max-height: calc(100dvh - 68px);
     overflow-x: clip;
     overflow-y: auto;
     border-bottom: 1px solid rgb(50 255 126 / 14%);
