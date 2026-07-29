@@ -1,0 +1,398 @@
+.button {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 7px;
+  place-items: center;
+  color: #dfffea;
+  background: transparent;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tile {
+  position: relative;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  overflow: hidden;
+  border: 1px solid rgb(50 255 126 / 34%);
+  border-radius: 7px;
+  place-items: center;
+  background:
+    linear-gradient(rgb(50 255 126 / 2.5%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(50 255 126 / 2.5%) 1px, transparent 1px),
+    rgb(5 10 7 / 78%);
+  background-size:
+    7px 7px,
+    7px 7px,
+    auto;
+  box-shadow:
+    inset 0 0 13px rgb(50 255 126 / 5%),
+    0 0 12px rgb(50 255 126 / 5%);
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 120ms ease;
+}
+
+.tile::after {
+  position: absolute;
+  inset: 3px;
+  border-right: 1px solid rgb(117 240 167 / 24%);
+  border-bottom: 1px solid rgb(117 240 167 / 24%);
+  content: "";
+  opacity: 0.58;
+  pointer-events: none;
+  clip-path: polygon(
+    100% 100%,
+    calc(100% - 9px) 100%,
+    calc(100% - 9px) calc(100% - 1px),
+    calc(100% - 1px) calc(100% - 1px),
+    calc(100% - 1px) calc(100% - 9px),
+    100% calc(100% - 9px)
+  );
+}
+
+.button:hover .tile {
+  border-color: rgb(50 255 126 / 58%);
+  box-shadow:
+    inset 0 0 15px rgb(50 255 126 / 8%),
+    0 0 16px rgb(50 255 126 / 10%);
+}
+
+.button:active .tile {
+  transform: scale(0.965);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.button[data-effect] .tile {
+  border-color: rgb(50 255 126 / 68%);
+  box-shadow:
+    inset 0 0 17px rgb(50 255 126 / 10%),
+    0 0 17px rgb(50 255 126 / 11%);
+}
+
+.symbol {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(223 255 234 / 88%);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: -0.08em;
+  line-height: 1;
+  text-shadow: 0 0 7px rgb(50 255 126 / 18%);
+}
+
+.symbol > span {
+  display: inline-block;
+}
+
+.rain,
+.orbit,
+.scanner,
+.confirm {
+  position: absolute;
+  pointer-events: none;
+}
+
+.rain {
+  z-index: 2;
+  inset: 0;
+  opacity: 0;
+}
+
+.rain > span {
+  position: absolute;
+  top: -12px;
+  width: 1px;
+  height: 10px;
+  background: linear-gradient(transparent, rgb(117 240 167 / 64%));
+  box-shadow: 0 0 4px rgb(50 255 126 / 20%);
+}
+
+.rain > span:nth-child(1) {
+  left: 9px;
+}
+
+.rain > span:nth-child(2) {
+  left: 20px;
+  height: 14px;
+}
+
+.rain > span:nth-child(3) {
+  left: 31px;
+  height: 8px;
+}
+
+.button[data-effect="rain"] .rain {
+  opacity: 1;
+}
+
+.button[data-effect="rain"] .rain > span {
+  animation: rain-burst 680ms ease-in both;
+}
+
+.button[data-effect="rain"] .rain > span:nth-child(2) {
+  animation-delay: 70ms;
+}
+
+.button[data-effect="rain"] .rain > span:nth-child(3) {
+  animation-delay: 130ms;
+}
+
+.orbit {
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  width: 26px;
+  height: 26px;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+}
+
+.orbit > span {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: rgb(117 240 167 / 78%);
+  box-shadow: 0 0 4px rgb(50 255 126 / 24%);
+}
+
+.orbit > span:nth-child(1) {
+  top: 0;
+  left: 0;
+}
+
+.orbit > span:nth-child(2) {
+  top: 0;
+  right: 0;
+}
+
+.orbit > span:nth-child(3) {
+  right: 0;
+  bottom: 0;
+}
+
+.orbit > span:nth-child(4) {
+  bottom: 0;
+  left: 0;
+}
+
+.button[data-effect="orbit"] .orbit {
+  opacity: 1;
+  animation: pixel-orbit 760ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scanner {
+  z-index: 4;
+  right: 4px;
+  left: 4px;
+  height: 1px;
+  opacity: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(117 240 167 / 74%),
+    transparent
+  );
+  box-shadow: 0 0 5px rgb(50 255 126 / 22%);
+}
+
+.button[data-effect="scanner"] .scanner {
+  opacity: 1;
+  animation: scanner-pulse 700ms ease-in-out both;
+}
+
+.button[data-effect="scanner"] .tile {
+  animation: scanner-frame 700ms ease-in-out;
+}
+
+.button[data-effect="assemble"] .symbol > span {
+  animation: data-assemble 720ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.button[data-effect="assemble"] .symbol > span:first-child {
+  --assemble-x: -9px;
+  --assemble-y: 5px;
+}
+
+.button[data-effect="assemble"] .symbol > span:nth-child(2) {
+  --assemble-x: 0;
+  --assemble-y: -8px;
+}
+
+.button[data-effect="assemble"] .symbol > span:last-child {
+  --assemble-x: 9px;
+  --assemble-y: 5px;
+}
+
+.confirm {
+  z-index: 5;
+  display: grid;
+  inset: 0;
+  place-items: center;
+  color: #dfffea;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.9rem;
+  font-weight: 750;
+  opacity: 0;
+  text-shadow: 0 0 7px rgb(50 255 126 / 22%);
+}
+
+.button[data-effect="confirm"] .symbol {
+  animation: symbol-yield 760ms ease-in-out;
+}
+
+.button[data-effect="confirm"] .confirm {
+  animation: system-confirm 760ms ease-in-out;
+}
+
+@keyframes rain-burst {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+
+  18% {
+    opacity: 0.75;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(52px);
+  }
+}
+
+@keyframes pixel-orbit {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  55% {
+    transform: translate(-50%, -50%) rotate(270deg);
+  }
+}
+
+@keyframes scanner-pulse {
+  0% {
+    opacity: 0;
+    transform: translateY(-18px);
+  }
+
+  18%,
+  74% {
+    opacity: 0.75;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
+@keyframes scanner-frame {
+  0%,
+  100% {
+    border-color: rgb(50 255 126 / 48%);
+  }
+
+  50% {
+    border-color: rgb(117 240 167 / 78%);
+  }
+}
+
+@keyframes data-assemble {
+  0% {
+    opacity: 0;
+    transform: translate(var(--assemble-x), var(--assemble-y));
+  }
+
+  45% {
+    opacity: 0.7;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0);
+  }
+}
+
+@keyframes symbol-yield {
+  0%,
+  20%,
+  80%,
+  100% {
+    opacity: 1;
+  }
+
+  35%,
+  68% {
+    opacity: 0;
+  }
+}
+
+@keyframes system-confirm {
+  0%,
+  28%,
+  76%,
+  100% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  42%,
+  64% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 760px) {
+  .tile {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button[data-effect] .tile {
+    border-color: rgb(117 240 167 / 64%);
+    background-color: rgb(10 18 13 / 92%);
+    box-shadow: inset 0 0 12px rgb(50 255 126 / 8%);
+  }
+
+  .button[data-effect] .rain > span,
+  .button[data-effect="orbit"] .orbit,
+  .button[data-effect="scanner"] .scanner,
+  .button[data-effect="scanner"] .tile,
+  .button[data-effect="assemble"] .symbol > span,
+  .button[data-effect="confirm"] .symbol,
+  .button[data-effect="confirm"] .confirm {
+    animation: none;
+  }
+
+  .button[data-effect] .rain,
+  .button[data-effect="orbit"] .orbit,
+  .button[data-effect="scanner"] .scanner,
+  .button[data-effect="confirm"] .confirm {
+    opacity: 0;
+  }
+
+  .button[data-effect="confirm"] .symbol {
+    opacity: 1;
+  }
+}

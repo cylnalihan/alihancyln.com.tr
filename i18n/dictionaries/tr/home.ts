@@ -1,0 +1,65 @@
+export const home = {
+  metadata: {
+    title: "Alihan Ceylan | Web Tasarım ve Geliştirme",
+    description:
+      "Markanıza ve hedeflerinize özel, sade ve etkili web deneyimleri tasarlıyorum.",
+  },
+  hero: {
+    titleBefore: "İhtiyacınız ne olursa olsun,",
+    titleAccent: "web’de karşılığını",
+    titleAfter: "tasarlıyorum.",
+    description: "Markanıza ve hedeflerinize özel dijital deneyimler.",
+    primaryCta: "Fikrinizi Anlatın",
+    secondaryCta: "Neler Yapabiliriz?",
+  },
+  about: {
+    eyebrow: "HAKKIMDA",
+    opening: "Merhaba, ben",
+    name: "Alihan Ceylan",
+    bridge: "markalar için",
+    emphasis: "sade, hızlı ve etkileyici",
+    closing: "web siteleri tasarlıyorum.",
+  },
+  showcase: {
+    technicalLabel: "CONCEPT / 08",
+    previewLabel: "Konsept site önizlemesi",
+    exampleLabel: "Örnek konsept",
+    controlsLabel: "Web sitesi türü önizlemeleri",
+    showConceptSuffix: "konseptini göster",
+    designs: [
+      { id: "corporate", label: "Kurumsal Site" },
+      { id: "commerce", label: "E-Ticaret" },
+      { id: "landing", label: "Landing Page" },
+      { id: "personal", label: "Kişisel Marka" },
+      { id: "restaurant", label: "Restoran ve Rezervasyon" },
+      { id: "blog", label: "Blog ve İçerik" },
+      { id: "event", label: "Etkinlik Sitesi" },
+      { id: "custom", label: "Özel Web Projesi" },
+    ],
+    previews: {
+      corporate: ["KURUMSAL", "Hizmetler", "Hakkımızda", "DİJİTAL KURUMSAL DENEYİM", "Güven veren, güçlü bir dijital yüz.", "İnceleyin", "Strateji", "Tasarım", "Teknoloji", "Net anlatım", "Güçlü yapı", "Kolay erişim"],
+      commerce: ["SHOP / CONCEPT", "Yeni", "Kategoriler", "Sepet · 2", "Tümü", "Yaşam", "Ofis", "Aksesuar", "Masa Lambası", "Seramik Kupa", "Minimal Çanta"],
+      landing: ["YENİ NESİL DENEYİM", "Tek bir fikri güçlü biçimde anlatın", "Ziyaretçiyi harekete geçiren bir sayfa.", "Hemen Başlayın →", "Net teklif", "Akıcı deneyim", "Güçlü çağrı"],
+      personal: ["İSİM / SOYİSİM", "Yazılar", "İletişim", "UZMANLIK & BAKIŞ AÇISI", "Bilginizi kişisel bir markaya dönüştürün.", "Danışmanlık", "İçerik", "Konuşmalar"],
+      restaurant: ["SOFRA", "Menü", "Masa Ayır", "MEVSİMİN TATLARI", "İyi yemek, sıcak bir karşılama.", "Tarih", "Bu Akşam", "Kişi", "2 Kişi", "Başlangıçlar", "Ana Yemekler", "Tatlılar"],
+      blog: ["NOTLAR", "Tasarım", "Teknoloji", "Kültür", "ÖNE ÇIKAN İÇERİK", "İyi fikirler için sakin bir okuma alanı.", "6 dk okuma", "Üretim üzerine notlar", "Dijital dünyada sadelik"],
+      event: ["EKİM", "YARATICI TEKNOLOJİ BULUŞMASI", "Fikirlerin kesiştiği bir gün.", "Kayıt Ol", "PROGRAM", "10:00 Açılış · 11:30 Oturum", "Konuşmacılar"],
+      custom: ["ÖZEL ÇALIŞMA ALANI", "Size göre çalışan bir sistem.", "Üyelik", "Aktif", "İş Akışı", "Hazır", "Talepler", "Açık"],
+    },
+  },
+  faq: {
+    eyebrow: "PROJE ÖNCESİ",
+    title: "Aklınızdaki soruların bazılarını şimdiden yanıtlayalım.",
+    description:
+      "Bir web projesine başlamadan önce süreç, kapsam ve teknik ayrıntılar hakkında en çok merak edilen konular.",
+    items: [
+      { question: "Bir web sitesinin hazırlanması ne kadar sürer?", answer: "Süre; sayfa sayısı, içerik hazırlığı, tasarım kapsamı ve ihtiyaç duyulan özelliklere göre değişir. Proje başlamadan önce kapsamla birlikte tahmini çalışma takvimi de netleştirilir." },
+      { question: "Fiyat nasıl belirlenir?", answer: "Sabit paketler yerine projenin ihtiyaçları, tasarım kapsamı ve teknik özellikleri değerlendirilir. Böylece yalnızca ihtiyaç duyulan çalışmaları içeren açık ve anlaşılır bir teklif hazırlanır." },
+      { question: "İçerikleri benim mi hazırlamam gerekiyor?", answer: "Mevcut içerikler birlikte düzenlenebilir. İhtiyaç hâlinde sayfa yapısının oluşturulması ve metinlerin hazırlanması konusunda da destek sağlanabilir." },
+      { question: "Site mobil cihazlarda düzgün çalışır mı?", answer: "Her arayüz masaüstüyle sınırlı kalmadan telefon ve tablet ekranları için ayrıca planlanır. Farklı ekran boyutlarında okunabilirlik, kullanılabilirlik ve performans kontrol edilir." },
+      { question: "Alan adı ve yayınlama sürecinde destek sağlıyor musunuz?", answer: "İhtiyaç doğrultusunda alan adı, hosting, temel teknik kurulum ve yayına alma aşamalarında destek sağlanabilir. Kullanılacak hizmetler proje gereksinimlerine göre birlikte belirlenir." },
+      { question: "Site yayımlandıktan sonra geliştirilebilir mi?", answer: "Altyapı, mümkün olduğunca yeni sayfalar ve özellikler eklenebilecek biçimde planlanır. Sonradan yapılabilecek geliştirmelerin kapsamı, projenin teknik yapısına göre değerlendirilir." },
+      { question: "SEO çalışması projeye dâhil mi?", answer: "Teknik SEO temelleri ve arama motorlarının anlayabileceği sayfa yapısı geliştirme sürecinde dikkate alınır. Kapsamlı içerik üretimi, anahtar kelime çalışması veya uzun vadeli SEO yönetimi ayrıca planlanabilir." },
+    ],
+  },
+} as const;

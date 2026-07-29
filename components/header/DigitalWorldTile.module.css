@@ -1,0 +1,371 @@
+.toolGroup {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.root {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.button {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 7px;
+  place-items: center;
+  color: #dfffea;
+  background: transparent;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tile {
+  position: relative;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  overflow: hidden;
+  border: 1px solid rgb(50 255 126 / 30%);
+  border-radius: 7px;
+  place-items: center;
+  background:
+    radial-gradient(circle, rgb(50 255 126 / 7%), transparent 62%),
+    linear-gradient(rgb(50 255 126 / 2.5%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(50 255 126 / 2.5%) 1px, transparent 1px),
+    rgb(5 10 7 / 78%);
+  background-size:
+    auto,
+    7px 7px,
+    7px 7px,
+    auto;
+  box-shadow:
+    inset 0 0 13px rgb(50 255 126 / 5%),
+    0 0 12px rgb(50 255 126 / 5%);
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 120ms ease;
+}
+
+.globe {
+  position: relative;
+  z-index: 2;
+  width: 34px;
+  height: 34px;
+  color: rgb(117 240 167 / 72%);
+  filter: drop-shadow(0 0 4px rgb(50 255 126 / 12%));
+  animation: globe-drift 28s linear infinite;
+}
+
+.globeEdge,
+.longitude,
+.latitude {
+  stroke: currentColor;
+  stroke-width: 0.8;
+  vector-effect: non-scaling-stroke;
+}
+
+.longitude,
+.latitude {
+  opacity: 0.55;
+}
+
+.connections {
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+.connections path {
+  stroke: rgb(117 240 167 / 68%);
+  stroke-width: 0.65;
+  stroke-dasharray: 2 2;
+  vector-effect: non-scaling-stroke;
+}
+
+.nodes {
+  fill: var(--accent);
+}
+
+.nodes circle {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: node-signal 6.4s ease-in-out infinite;
+}
+
+.nodes circle:nth-child(2) {
+  animation-delay: -0.8s;
+}
+
+.nodes circle:nth-child(3) {
+  animation-delay: -1.6s;
+}
+
+.nodes circle:nth-child(4) {
+  animation-delay: -2.4s;
+}
+
+.scan {
+  position: absolute;
+  z-index: 3;
+  right: 5px;
+  left: 5px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgb(117 240 167 / 58%),
+    transparent
+  );
+  box-shadow: 0 0 4px rgb(50 255 126 / 18%);
+  opacity: 0;
+  animation: globe-scan 11.2s ease-in-out infinite;
+}
+
+.signal {
+  position: absolute;
+  z-index: 1;
+  width: 27px;
+  height: 27px;
+  border: 1px solid rgb(50 255 126 / 34%);
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.button:hover .tile,
+.button:focus-visible .tile,
+.button[aria-expanded="true"] .tile {
+  border-color: rgb(50 255 126 / 58%);
+  box-shadow:
+    inset 0 0 15px rgb(50 255 126 / 8%),
+    0 0 16px rgb(50 255 126 / 10%);
+}
+
+.button:hover .connections,
+.button:focus-visible .connections,
+.button[aria-expanded="true"] .connections {
+  opacity: 1;
+}
+
+.button:active .tile {
+  transform: scale(0.965);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.button[data-connected] .signal {
+  animation: connection-confirm 720ms ease-out;
+}
+
+.button[data-connected] .connections path {
+  animation: connection-path 720ms ease-out;
+}
+
+.popover {
+  position: absolute;
+  z-index: 60;
+  top: calc(100% + 14px);
+  right: 0;
+  width: min(290px, calc(100vw - 32px));
+  padding: 18px;
+  border: 1px solid rgb(50 255 126 / 24%);
+  border-radius: 7px;
+  color: var(--text);
+  background:
+    linear-gradient(135deg, rgb(50 255 126 / 5%), transparent 48%),
+    rgb(5 10 7 / 97%);
+  box-shadow:
+    inset 0 1px 0 rgb(244 247 245 / 4%),
+    0 18px 42px rgb(0 0 0 / 38%);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-5px);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease,
+    visibility 180ms ease;
+  visibility: hidden;
+}
+
+.popover[data-open="true"] {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.popoverLabel {
+  display: block;
+  margin-bottom: 10px;
+  color: var(--accent);
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+}
+
+.popover strong {
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 580;
+  line-height: 1.5;
+}
+
+.location {
+  display: block;
+  margin-top: 9px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+.mobileInfo {
+  display: none;
+}
+
+@keyframes globe-drift {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes node-signal {
+  0%,
+  100% {
+    opacity: 0.48;
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes globe-scan {
+  0%,
+  58% {
+    opacity: 0;
+    transform: translateY(-13px);
+  }
+
+  64%,
+  79% {
+    opacity: 0.72;
+  }
+
+  88%,
+  100% {
+    opacity: 0;
+    transform: translateY(13px);
+  }
+}
+
+@keyframes connection-confirm {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.72);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.35);
+  }
+}
+
+@keyframes connection-path {
+  from {
+    stroke-dashoffset: 12;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .toolGroup {
+    display: none;
+  }
+
+  .mobileInfo {
+    display: flex;
+    min-height: 64px;
+    margin-block: 8px 4px;
+    padding: 11px 12px;
+    border: 1px solid rgb(50 255 126 / 14%);
+    border-radius: 6px;
+    align-items: center;
+    gap: 12px;
+    background: rgb(50 255 126 / 3%);
+  }
+
+  .mobileGlobe {
+    display: grid;
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    border: 1px solid rgb(50 255 126 / 22%);
+    border-radius: 50%;
+    place-items: center;
+  }
+
+  .mobileGlobe .globe {
+    width: 30px;
+    height: 30px;
+    animation: none;
+  }
+
+  .mobileInfo > span:last-child {
+    min-width: 0;
+  }
+
+  .mobileInfo strong,
+  .mobileInfo small {
+    display: block;
+  }
+
+  .mobileInfo strong {
+    color: var(--text);
+    font-size: 0.78rem;
+    font-weight: 560;
+    line-height: 1.35;
+  }
+
+  .mobileInfo small {
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 0.67rem;
+    line-height: 1.35;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .globe,
+  .nodes circle,
+  .scan,
+  .button[data-connected] .signal,
+  .button[data-connected] .connections path {
+    animation: none;
+  }
+
+  .scan,
+  .signal {
+    opacity: 0;
+  }
+
+  .globe {
+    transform: none;
+  }
+}

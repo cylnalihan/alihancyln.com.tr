@@ -1,0 +1,108 @@
+import type { DeepWiden } from "@/i18n/types";
+import type { services as trServices } from "@/i18n/dictionaries/tr/services";
+
+export const services = {
+  metadata: {
+    title: "Services | Alihan Ceylan",
+    description:
+      "Explore corporate websites, e-commerce, landing pages and custom web application solutions.",
+  },
+  intro: {
+    eyebrow: "WHAT CAN I DO?",
+    title: "Let’s shape the right web solution",
+    titleAccent: "for your idea.",
+    lead:
+      "I create original, fast and scalable digital experiences around your brand, audience and goals.",
+    emphasis: "No generic templates—solutions shaped around your needs.",
+  },
+  selector: {
+    index: "SOLUTION SELECTOR / 08",
+    title: "Choose the closest match for your needs.",
+    description:
+      "Explore what each solution can offer and the experience it can become.",
+    tabsLabel: "Web solution types",
+    featuresLabel: "WHAT CAN IT INCLUDE?",
+    mockupLabel: "INTERFACE CONCEPT",
+    ctaHint: "Your idea may be different.",
+    ctaTitle: "Let’s build a structure around your needs.",
+    openForm: "Tell Me About Your Idea",
+    closeForm: "Close form",
+    dirtyWarning:
+      "You have unsaved information in the form. Are you sure you want to close it?",
+  },
+  items: [
+    { id: "corporate", label: "Corporate Website", category: "CORPORATE EXPERIENCE", title: "A confident digital home for your brand.", description: "I design fast, dependable and professional websites that explain your services and brand clearly.", features: ["Brand-led custom design", "Service and solution pages", "Responsive interface", "Contact and enquiry flow", "SEO-friendly structure", "Performance and security focus"] },
+    { id: "commerce", label: "E-Commerce", category: "DIGITAL STORE", title: "Let’s build a store ready to sell.", description: "I create e-commerce experiences that present products clearly and guide visitors through a secure, simple purchase journey.", features: ["Product and category structure", "Search and filtering", "Cart and checkout flow", "Campaign areas", "Mobile shopping experience", "Admin integration"] },
+    { id: "landing", label: "Landing Page", category: "CONVERSION EXPERIENCE", title: "A focused page built around one goal.", description: "I design landing pages that explain your campaign, product or service quickly and lead visitors towards the right action.", features: ["Clear offer area", "Focused action buttons", "Benefits and features", "Form or application flow", "Mobile conversion focus", "Analytics-ready structure"] },
+    { id: "personal", label: "Personal Brand & Portfolio", category: "PERSONAL DIGITAL IDENTITY", title: "Turn your expertise into an experience that feels like you.", description: "I present your skills, work and personal brand through a clear yet distinctive digital identity.", features: ["Personal brand identity", "About and expertise", "Work or content showcase", "Social links", "Contact area", "Individual visual language"] },
+    { id: "restaurant", label: "Restaurant & Booking", category: "VENUE EXPERIENCE", title: "Set the mood before the first visit.", description: "I build restaurant websites that present the menu, convey the atmosphere and make booking easy.", features: ["Digital menu", "Category and item display", "Table booking", "Location and opening hours", "Mobile experience", "Campaign and event areas"] },
+    { id: "blog", label: "Blog & Content Platform", category: "CONTENT PLATFORM", title: "Make your content readable, discoverable and sustainable.", description: "I create platforms that organise articles and series clearly and help readers discover more.", features: ["Articles and categories", "Featured content", "Search and tags", "Author areas", "Reading experience", "SEO-friendly content structure"] },
+    { id: "event", label: "Event & Promotion Website", category: "EVENT EXPERIENCE", title: "Give your event a digital stage that builds interest.", description: "I design event websites that present schedules, speakers and attendance details through a strong visual flow.", features: ["Date and location", "Programme flow", "Speaker or attendee areas", "Registration and ticket links", "Announcements", "Mobile event experience"] },
+    { id: "application", label: "Custom Web Application", category: "CUSTOM WEB SYSTEM", title: "Systems designed around your work.", description: "I develop scalable web applications for memberships, bookings, dashboards and custom workflows.", features: ["Membership and roles", "Custom admin panel", "Booking or tracking", "Data and reports", "API integrations", "Purpose-built functions"] },
+  ],
+  mockups: {
+    corporate: ["STUDIO / ONE", "Approach", "Solutions", "DIGITAL TRANSFORMATION", "Shape what comes next, together.", "Strategy", "Design", "Technology", "Shared values", "Long-term approach"],
+    commerce: ["FORM / STORE", "Search products", "Cart · 2", "Objects for everyday life.", "All", "Living", "Office", "Form 01", "Form 02", "Form 03", "Price", "Add to cart"],
+    landing: ["LAUNCH / 01", "Details", "A NEW IDEA", "One message.", "A strong impact.", "A short, focused experience built around the need.", "Get started →", "Clear offer", "Fast flow", "Contact details", "Send"],
+    personal: ["NAME / SURNAME", "About", "Contact", "EXPERTISE & PERSPECTIVE", "I turn knowledge into meaningful experiences.", "Strategy", "Making", "Content", "Connect →"],
+    restaurant: ["TABLE", "Menu", "Book", "SEASONAL MENU", "A warm table,", "thoughtful flavours.", "Starters", "Main Menu", "Desserts", "DATE", "Choose a date", "TIME", "Choose a time", "Check tables →"],
+    blog: ["NOTES /", "Design", "Technology", "Culture", "FEATURED · 6 MIN", "A calm space where ideas can grow.", "Continue reading →", "APPROACH · 4 MIN", "Short notes on making", "EXPERIENCE · 5 MIN", "Simplicity in digital work"],
+    event: ["IDEA / STAGE", "Programme", "Register", "OCTOBER", "CREATIVE TECHNOLOGY MEETUP", "A day where ideas connect.", "Istanbul · Fictional event", "PROGRAMME", "Opening", "Session"],
+    application: ["WORKSPACE", "Overview", "Membership", "Active", "Workflow", "Ready", "Requests", "Open", "In review", "Planned", "Completed"],
+  },
+  process: {
+    eyebrow: "PROCESS / 05",
+    title: "How I work",
+    description:
+      "From idea to launch, I manage every stage through a clear, planned process that moves forward with you.",
+    steps: [
+      { title: "I Listen", description: "I learn about your idea, goals and users." },
+      { title: "I Plan", description: "I define the content structure, features and user journey." },
+      { title: "I Design", description: "I create original, usable interfaces tailored to your brand." },
+      { title: "I Develop", description: "I build the design as a fast, secure and responsive product." },
+      { title: "I Prepare for Launch", description: "I complete the checks and prepare the project for use." },
+    ],
+  },
+  form: {
+    eyebrow: "PROJECT ENQUIRY / SECURE FORM",
+    title: "Let’s make your idea clear.",
+    description: "Share the essentials and I’ll get back to you after reviewing the project scope.",
+    closeLabel: "Close project enquiry form",
+    legend: "Project enquiry details",
+    identityTitle: "About you",
+    name: "Full name", email: "Email address", phone: "Phone number",
+    company: "Company or brand", optional: "Optional",
+    ideaTitle: "Tell me about your idea", projectType: "Project type", message: "Message",
+    messageHelp: "Describe your goals, needs and any timing expectations.",
+    uploadTitle: "Add a photo or document",
+    uploadDescription: "Drag files here or click to choose them.",
+    uploadRules: "JPG, PNG, WebP, PDF, DOC, DOCX · Up to 5 files · 8 MB each · 20 MB total",
+    selectedFiles: "Selected files", unknownType: "Unknown type",
+    remove: "Remove", removeFile: "remove file", website: "Website",
+    consent: "I agree that the information I share may be used to assess my project enquiry and contact me.",
+    submitting: "Sending…", submit: "Send my idea",
+    success: "Your idea was sent securely. I’ll get back to you as soon as possible.",
+    fileErrors: {
+      tooMany: "You can add up to 5 files.",
+      tooLarge: "Each file can be up to 8 MB.",
+      totalTooLarge: "The total file size can be up to 20 MB.",
+      unsupported: "Only JPG, PNG, WebP, PDF, DOC and DOCX files are accepted.",
+    },
+    apiErrors: {
+      INVALID_REQUEST: "Invalid request. Check the form and try again.",
+      TOO_FAST: "The form was submitted too quickly. Check your details and try again.",
+      INVALID_NAME: "Check the full name field.",
+      INVALID_EMAIL: "Enter a valid email address.",
+      INVALID_CONTACT: "One of the contact fields is too long.",
+      INVALID_PROJECT_TYPE: "Choose a valid project type.",
+      INVALID_MESSAGE: "The message must contain 20–5000 characters.",
+      CONSENT_REQUIRED: "Privacy and contact consent is required.",
+      INVALID_SUBMISSION: "The submission ID is invalid.",
+      INVALID_FILE: "One of the files has an invalid type, content or size.",
+      RATE_LIMITED: "Too many attempts. Please try again later.",
+      SERVICE_UNAVAILABLE: "The sending service is currently unavailable. Please try again later.",
+      REQUEST_FAILED: "The form could not be sent. Your details are preserved; please try again.",
+      UNKNOWN: "An unexpected error occurred. Your details are preserved; please try again.",
+    },
+  },
+} satisfies DeepWiden<typeof trServices>;
