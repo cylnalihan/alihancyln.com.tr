@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/wrangler/config-schema.json",
-  "name": "alihanceylan-com-tr",
+  "name": "alihanceylan-com",
   "main": ".open-next/worker.js",
   "compatibility_date": "2026-07-29",
   "compatibility_flags": ["nodejs_compat"],

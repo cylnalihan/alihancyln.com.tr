@@ -2,7 +2,7 @@
 
 ## Resend alan adı
 
-1. Resend panelinde tercihen `send.alihanceylan.com.tr` alt alan adını ekleyin.
+1. Resend panelinde tercihen `send.alihanceylan.com` alt alan adını ekleyin.
 2. Panelin ürettiği SPF ve DKIM kayıtlarını DNS sağlayıcısına değerleri değiştirmeden ekleyin.
 3. Gerekli DNS değerlerini bu projeden veya örnek bir kaynaktan kopyalamayın; yalnızca Resend panelindeki gerçek kayıtları kullanın.
 4. Alan adı durumu `verified` olduktan sonra bu alan adına ait gönderen adresini kullanın.
@@ -13,7 +13,7 @@
 Cloudflare Worker ayarlarında aşağıdaki değişkenleri tanımlayın:
 
 - `RESEND_API_KEY`: Secret olarak ekleyin; düz metin Wrangler yapılandırmasına yazmayın.
-- `CONTACT_FROM_EMAIL`: Doğrulanmış alan adındaki sabit gönderen. Örnek: `Alihan Ceylan Web <form@send.alihanceylan.com.tr>`.
+- `CONTACT_FROM_EMAIL`: Doğrulanmış alan adındaki sabit gönderen. Örnek: `Alihan Ceylan Web <form@send.alihanceylan.com>`.
 - `CONTACT_TO_EMAIL`: Form bildirimlerinin ulaşacağı adres.
 
 Yerel geliştirme için gerçek değerleri `.env.local` içinde tutun. Bu dosyayı repoya eklemeyin.
