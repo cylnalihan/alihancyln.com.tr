@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
 
@@ -75,7 +74,7 @@ export function MobileNavigation({
         <ul className="mobile-nav-list">
           {items.map((item) => (
             <li key={item.pageId}>
-              <Link
+              <a
                 className="mobile-nav-link"
                 href={getPath(locale, item.pageId)}
                 aria-current={currentPage === item.pageId ? "page" : undefined}
@@ -83,7 +82,7 @@ export function MobileNavigation({
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}
-              </Link>
+              </a>
             </li>
           ))}
           <li>
@@ -99,7 +98,7 @@ export function MobileNavigation({
             />
           </li>
           <li>
-            <Link
+            <a
               className="contact-link mobile-contact-link"
               href={getPath(locale, "contact")}
               aria-current={currentPage === "contact" ? "page" : undefined}
@@ -107,7 +106,7 @@ export function MobileNavigation({
               onClick={() => setIsOpen(false)}
             >
               {dictionary.navigation.contact}
-            </Link>
+            </a>
           </li>
         </ul>
       </nav>
