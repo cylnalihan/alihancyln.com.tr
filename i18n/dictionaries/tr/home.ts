@@ -5,10 +5,33 @@ export const home = {
       "Markanıza ve hedeflerinize özel, sade ve etkili web deneyimleri tasarlıyorum.",
   },
   hero: {
-    titleBefore: "İhtiyacınız ne olursa olsun,",
-    titleAccent: "web’de karşılığını",
-    titleAfter: "tasarlıyorum.",
-    description: "Markanıza ve hedeflerinize özel dijital deneyimler.",
+    label: "WEB TASARIMI • GELİŞTİRME • DİJİTAL DENEYİM",
+    support: "İşletmeler, girişimler ve bireysel markalar için modern, güvenilir ve hedef odaklı web çözümleri.",
+    previousLabel: "Önceki mesaj",
+    nextLabel: "Sonraki mesaj",
+    messageLabel: "Mesaj",
+    messages: [
+      {
+        leading: "İşletmenizi dijital dünyada ",
+        accent: "güçlü biçimde",
+        trailing: " temsil edin.",
+      },
+      {
+        leading: "Markanızı ",
+        accent: "geleceğe hazır",
+        trailing: " bir web deneyimiyle buluşturun.",
+      },
+      {
+        leading: "Fikirlerinizi ",
+        accent: "etkileyici dijital projelere",
+        trailing: " dönüştürün.",
+      },
+      {
+        leading: "Çalışmalarınızı ",
+        accent: "profesyonel ve özgün",
+        trailing: " biçimde sunun.",
+      },
+    ],
     primaryCta: "Fikrinizi Anlatın",
     secondaryCta: "Neler Yapabiliriz?",
   },

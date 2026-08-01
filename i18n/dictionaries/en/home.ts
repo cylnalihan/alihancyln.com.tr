@@ -8,10 +8,33 @@ export const home = {
       "I design clear, effective web experiences tailored to your brand and goals.",
   },
   hero: {
-    titleBefore: "Whatever you need,",
-    titleAccent: "I shape it into",
-    titleAfter: "a web experience.",
-    description: "Digital experiences tailored to your brand and goals.",
+    label: "WEB DESIGN • DEVELOPMENT • DIGITAL EXPERIENCE",
+    support: "Modern, reliable, and goal-focused web solutions for businesses, ventures, and personal brands.",
+    previousLabel: "Previous message",
+    nextLabel: "Next message",
+    messageLabel: "Message",
+    messages: [
+      {
+        leading: "Represent your business ",
+        accent: "with confidence",
+        trailing: " online.",
+      },
+      {
+        leading: "Equip your brand with a ",
+        accent: "future-ready",
+        trailing: " web experience.",
+      },
+      {
+        leading: "Turn your ideas into ",
+        accent: "engaging digital projects",
+        trailing: ".",
+      },
+      {
+        leading: "Present your work with ",
+        accent: "clarity and distinction",
+        trailing: ".",
+      },
+    ],
     primaryCta: "Tell Me About Your Idea",
     secondaryCta: "View My Services",
   },
