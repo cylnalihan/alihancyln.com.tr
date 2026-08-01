@@ -44,6 +44,25 @@ type SelectedFile = {
   previewUrl?: string;
 };
 
+function createClientId() {
+  const webCrypto = globalThis.crypto;
+
+  if (webCrypto?.randomUUID) {
+    return webCrypto.randomUUID();
+  }
+
+  if (webCrypto?.getRandomValues) {
+    return Array.from(webCrypto.getRandomValues(new Uint8Array(16)), (byte) =>
+      byte.toString(16).padStart(2, "0"),
+    ).join("");
+  }
+
+  const fallback = `${Date.now().toString(16)}${Math.random()
+    .toString(16)
+    .slice(2)}`;
+  return fallback.padEnd(32, "0").slice(0, 32);
+}
+
 function clientFileError(
   files: readonly File[],
   messages: ProjectInquiryFormProps["dictionary"]["fileErrors"],
@@ -86,7 +105,8 @@ export function ProjectInquiryForm({
   const projectTypeRef = useRef<HTMLSelectElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const openedAtRef = useRef<number | null>(null);
-  const submissionIdRef = useRef(crypto.randomUUID());
+  const [initialSubmissionId] = useState(createClientId);
+  const submissionIdRef = useRef(initialSubmissionId);
   const wasOpenRef = useRef(false);
   const selectedFilesRef = useRef<SelectedFile[]>([]);
   const [selectedFiles, setSelectedFiles] = useState<SelectedFile[]>([]);
@@ -161,7 +181,7 @@ export function ProjectInquiryForm({
     setSelectedFiles(
       nextFiles.map((file) => ({
         file,
-        id: crypto.randomUUID(),
+        id: createClientId(),
         previewUrl: file.type.startsWith("image/")
           ? URL.createObjectURL(file)
           : undefined,
@@ -241,7 +261,7 @@ export function ProjectInquiryForm({
       setFileError("");
       setIsDirty(false);
       onDirtyChange(false);
-      submissionIdRef.current = crypto.randomUUID();
+      submissionIdRef.current = createClientId();
       openedAtRef.current = Date.now();
       if (projectTypeRef.current) {
         projectTypeRef.current.value = initialProjectTypeId;

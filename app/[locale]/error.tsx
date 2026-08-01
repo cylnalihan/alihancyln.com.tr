@@ -2,13 +2,28 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 
 import { getClientErrorDictionary } from "@/i18n/client-errors";
 import { getPath } from "@/i18n/routes";
 
-export default function LocalizedError({ reset }: { error: Error; reset: () => void }) {
+export default function LocalizedError({
+  error,
+  reset,
+}: {
+  error: Error & { digest?: string };
+  reset: () => void;
+}) {
   const { locale, dictionary } = getClientErrorDictionary(usePathname());
   const content = dictionary.runtime;
+
+  useEffect(() => {
+    console.error("Localized route error", {
+      message: error.message,
+      stack: error.stack,
+      digest: error.digest,
+    });
+  }, [error]);
 
   return (
     <main className="error-page">
