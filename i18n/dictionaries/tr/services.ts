@@ -6,11 +6,11 @@ export const services = {
   },
   intro: {
     eyebrow: "NELER YAPABİLİRİZ?",
-    title: "Fikrinize uygun web çözümünü",
-    titleAccent: "birlikte tasarlayalım.",
+    title: "Kurumsal hedeflerinizi ve bireysel fikirlerinizi",
+    titleAccent: "güçlü web deneyimlerine",
+    titleClosing: " dönüştürüyoruz.",
     lead:
-      "Markanızın hedeflerine, kullanıcılarına ve ihtiyaçlarına göre özgün, hızlı ve ölçeklenebilir dijital deneyimler oluşturuyorum.",
-    emphasis: "Hazır kalıplar değil, ihtiyaca özel çözümler.",
+      "İhtiyacınıza göre şekillenen, hazır kalıplarla sınırlandırılmayan çözümler.",
   },
   selector: {
     index: "ÇÖZÜM SEÇİCİ / 08",

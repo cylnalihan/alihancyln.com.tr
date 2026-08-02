@@ -36,11 +36,10 @@ export const home = {
     secondaryCta: "Neler Yapabiliriz?",
   },
   about: {
-    eyebrow: "NELER YAPABİLİRİZ?",
-    opening: "Kurumsal hedeflerinizi ve bireysel fikirlerinizi",
-    emphasis: "güçlü web deneyimlerine",
-    closing: " dönüştürüyoruz.",
-    support: "İhtiyacınıza göre şekillenen, hazır kalıplarla sınırlandırılmayan çözümler.",
+    eyebrow: "YAKLAŞIMIMIZ",
+    opening: "İşletmeler ve bireysel girişimler için",
+    emphasis: "profesyonelliği, özgün tasarımı ve amaca yönelik teknolojiyi",
+    closing: " bir araya getiren web deneyimleri geliştiriyoruz.",
   },
   showcase: {
     technicalLabel: "CONCEPT / 08",

@@ -8,12 +8,12 @@ export const services = {
       "Explore corporate websites, e-commerce, landing pages and custom web application solutions.",
   },
   intro: {
-    eyebrow: "WHAT CAN I DO?",
-    title: "Let’s shape the right web solution",
-    titleAccent: "for your idea.",
+    eyebrow: "WHAT CAN WE DO?",
+    title: "We transform your business goals and individual ideas into",
+    titleAccent: "powerful web experiences",
+    titleClosing: ".",
     lead:
-      "I create original, fast and scalable digital experiences around your brand, audience and goals.",
-    emphasis: "No generic templates—solutions shaped around your needs.",
+      "Solutions shaped around your needs, without the limitations of ready-made templates.",
   },
   selector: {
     index: "SOLUTION SELECTOR / 08",

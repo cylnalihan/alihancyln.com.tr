@@ -98,9 +98,8 @@ export default async function LocalizedPage({ params }: PageProps) {
         <div className={styles.container}>
           <div className={styles.introCopy}>
             <p className={styles.eyebrow}><span aria-hidden="true" />{services.intro.eyebrow}</p>
-            <h1 id="services-title" className={styles.title}>{services.intro.title} <span>{services.intro.titleAccent}</span></h1>
+            <h1 id="services-title" className={styles.title}>{services.intro.title} <span>{services.intro.titleAccent}</span>{services.intro.titleClosing}</h1>
             <p className={styles.lead}>{services.intro.lead}</p>
-            <p className={styles.emphasis}><span aria-hidden="true">✦</span>{services.intro.emphasis}</p>
           </div>
         </div>
       </section>
