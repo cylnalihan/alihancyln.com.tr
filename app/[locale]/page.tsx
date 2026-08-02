@@ -35,17 +35,19 @@ export default async function HomePage({ params }: PageProps) {
         name={home.metadata.title}
         description={home.metadata.description}
       />
-      <Hero locale={value} dictionary={home} />
-      <section className="about-section" aria-labelledby="about-title">
-        <div className="about-section-inner">
-          <p className="about-section-label">{home.about.eyebrow}</p>
-          <h2 id="about-title" className="about-section-statement">
-            {home.about.opening} <em>{home.about.emphasis}</em>
-            {home.about.closing}
-          </h2>
-        </div>
-      </section>
-      <ProjectFaq dictionary={home.faq} />
+      <div className="home-page-reveal">
+        <Hero locale={value} dictionary={home} />
+        <section className="about-section" aria-labelledby="about-title">
+          <div className="about-section-inner">
+            <p className="about-section-label">{home.about.eyebrow}</p>
+            <h2 id="about-title" className="about-section-statement">
+              {home.about.opening} <em>{home.about.emphasis}</em>
+              {home.about.closing}
+            </h2>
+          </div>
+        </section>
+        <ProjectFaq dictionary={home.faq} />
+      </div>
     </main>
   );
 }
