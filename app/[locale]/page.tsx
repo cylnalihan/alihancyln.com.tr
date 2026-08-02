@@ -40,8 +40,7 @@ export default async function HomePage({ params }: PageProps) {
         <div className="about-section-inner">
           <p className="about-section-label">{home.about.eyebrow}</p>
           <h2 id="about-title" className="about-section-statement">
-            {home.about.opening} <span>{home.about.name}</span>;{" "}
-            {home.about.bridge} <em>{home.about.emphasis}</em>{" "}
+            {home.about.opening} <em>{home.about.emphasis}</em>
             {home.about.closing}
           </h2>
         </div>

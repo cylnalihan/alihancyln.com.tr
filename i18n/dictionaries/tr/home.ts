@@ -36,12 +36,10 @@ export const home = {
     secondaryCta: "Neler Yapabiliriz?",
   },
   about: {
-    eyebrow: "HAKKIMDA",
-    opening: "Merhaba, ben",
-    name: "Alihan Ceylan",
-    bridge: "markalar için",
-    emphasis: "sade, hızlı ve etkileyici",
-    closing: "web siteleri tasarlıyorum.",
+    eyebrow: "YAKLAŞIMIMIZ",
+    opening: "İşletmeler ve bireysel girişimler için",
+    emphasis: "profesyonelliği, özgün tasarımı ve amaca yönelik teknolojiyi",
+    closing: " bir araya getiren web deneyimleri geliştiriyoruz.",
   },
   showcase: {
     technicalLabel: "CONCEPT / 08",

@@ -39,12 +39,10 @@ export const home = {
     secondaryCta: "View My Services",
   },
   about: {
-    eyebrow: "ABOUT",
-    opening: "Hello, I’m",
-    name: "Alihan Ceylan",
-    bridge: "and I design",
-    emphasis: "clear, fast and engaging",
-    closing: "websites for brands.",
+    eyebrow: "OUR APPROACH",
+    opening: "We create web experiences that bring together",
+    emphasis: "professionalism, original design, and purpose-driven technology",
+    closing: " for businesses and individual ventures.",
   },
   showcase: {
     technicalLabel: "CONCEPT / 08",
