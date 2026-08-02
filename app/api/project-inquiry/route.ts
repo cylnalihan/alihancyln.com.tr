@@ -383,7 +383,11 @@ export async function POST(request: Request) {
     const sendResult = await Promise.race([sendPromise, timeoutPromise]);
 
     if (sendResult.error) {
-      console.error("Resend project inquiry failed:", sendResult.error.name);
+      console.error("Resend project inquiry failed:", {
+        statusCode: sendResult.error.statusCode,
+        name: sendResult.error.name,
+        message: sendResult.error.message,
+      });
       return NextResponse.json(
         { code: "REQUEST_FAILED" satisfies ErrorCode },
         { status: 502 },
