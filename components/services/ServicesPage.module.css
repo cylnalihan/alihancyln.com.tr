@@ -61,6 +61,30 @@
   max-width: 820px;
 }
 
+.introCopy > .eyebrow {
+  animation: intro-copy-reveal 560ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.introCopy > .title {
+  animation: intro-copy-reveal 680ms 70ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.introCopy > .lead {
+  animation: intro-copy-reveal 640ms 150ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes intro-copy-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .eyebrow,
 .category {
   display: flex;
@@ -2521,6 +2545,12 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .introCopy > .eyebrow,
+  .introCopy > .title,
+  .introCopy > .lead {
+    animation: none;
+  }
+
   .panelContent {
     animation: none;
   }
