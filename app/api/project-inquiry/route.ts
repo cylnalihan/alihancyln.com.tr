@@ -279,10 +279,13 @@ async function getRateLimitKey(request: Request, email: string) {
     .join("");
 }
 
-async function checkRateLimit(request: Request, email: string) {
+async function checkRateLimit(
+  request: Request,
+  email: string,
+  env: CloudflareEnv,
+) {
   try {
-    const { env } = await getCloudflareContext({ async: true });
-    const limiter = (env as CloudflareEnv).PROJECT_INQUIRY_RATE_LIMITER;
+    const limiter = env.PROJECT_INQUIRY_RATE_LIMITER;
     if (!limiter) return true;
     const result = await limiter.limit({
       key: await getRateLimitKey(request, email),
@@ -311,16 +314,17 @@ export async function POST(request: Request) {
     }
 
     const { data } = result;
-    if (!(await checkRateLimit(request, data.email))) {
+    const { env } = await getCloudflareContext({ async: true });
+    if (!(await checkRateLimit(request, data.email, env))) {
       return NextResponse.json(
         { code: "RATE_LIMITED" satisfies ErrorCode },
         { status: 429 },
       );
     }
 
-    const apiKey = process.env.RESEND_API_KEY;
-    const from = process.env.CONTACT_FROM_EMAIL;
-    const to = process.env.CONTACT_TO_EMAIL;
+    const apiKey = env.RESEND_API_KEY;
+    const from = env.CONTACT_FROM_EMAIL;
+    const to = env.CONTACT_TO_EMAIL;
     if (!apiKey || !from || !to) {
       console.error("Project inquiry email configuration is missing.");
       return NextResponse.json(
