@@ -39,10 +39,11 @@ export const home = {
     secondaryCta: "View My Services",
   },
   about: {
-    eyebrow: "OUR APPROACH",
-    opening: "We create web experiences that bring together",
-    emphasis: "professionalism, original design, and purpose-driven technology",
-    closing: " for businesses and individual ventures.",
+    eyebrow: "WHAT CAN WE DO?",
+    opening: "We transform your business goals and individual ideas into",
+    emphasis: "powerful web experiences",
+    closing: ".",
+    support: "Solutions shaped around your needs, without the limitations of ready-made templates.",
   },
   showcase: {
     technicalLabel: "CONCEPT / 08",

@@ -134,6 +134,15 @@ a {
   font-style: normal;
 }
 
+.about-section-support {
+  grid-column: 4 / span 8;
+  max-width: 680px;
+  margin: -8px 0 0;
+  color: var(--muted);
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  line-height: 1.65;
+}
+
 .email-page {
   display: grid;
   min-height: calc(100vh - 76px);
@@ -2609,6 +2618,11 @@ a {
     font-size: clamp(1.55rem, 7vw, 2.15rem);
     line-height: 1.17;
     text-wrap: pretty;
+  }
+
+  .about-section-support {
+    max-width: 38ch;
+    margin-top: 18px;
   }
 
   .email-page {
